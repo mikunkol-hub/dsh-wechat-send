@@ -1,0 +1,42 @@
+{
+  "name": "dsh-wechat-send",
+  "version": "0.2.0",
+  "description": "让 DSH agent 向微信会话发送原生表情包：共享表情池（自动收集/GLM 主动打标/满池 DS 评选）、候选与发送工具、配置防篡改。",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "wechat",
+    "sticker",
+    "emoji",
+    "send"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikunkol-hub/dsh-wechat-send.git"
+  },
+  "homepage": "https://github.com/mikunkol-hub/dsh-wechat-send#readme",
+  "bugs": {
+    "url": "https://github.com/mikunkol-hub/dsh-wechat-send/issues"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "@deepseek-ai/dsh-tools": "*"
+  }
+}
