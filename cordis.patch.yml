@@ -1,0 +1,19 @@
+# dsh-wechat-send —— DSH bundle patch（基线版，关键配置受插件内置防护，请勿直接修改）
+# 挂进 profile 配置树（bundle 层）。安装：link 依赖 + node_modules junction + bundles 条目。
+- insert:
+    - id: dsh-wechat-send
+      name: dsh-wechat-send
+      config:
+        # WeChatAgent 桥接的受控发送端点（social-bridge.js 里 127.0.0.1:11231）
+        bridgeUrl: "http://127.0.0.1:11231"
+        # 与 DSH 侧插件共用的桥接鉴权 token 文件
+        tokenFile: "D:/WeChatAgent/data/workspace/state/social-dsh-token.txt"
+        timeoutMs: 15000
+        # 表情池收集：reader 服务（拉图 + 导入共享池）与收集监听端口
+        readerUrl: "http://127.0.0.1:5031"
+        readerTokenFile: "D:/WeChatAgent/data/workspace/state/wechat-io-config.json"
+        collectPort: 11232
+        # 只允许向这些会话发送与收集（空数组 = 不额外限制，桥接白名单仍生效）
+        allowedKeys:
+          - "wechat:group:2033139186"
+          - "wechat:private:417674264"
